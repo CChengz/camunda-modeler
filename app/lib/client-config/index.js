@@ -14,6 +14,7 @@ var NoneProvider = require('./providers/none-provider');
 
 var ElementTemplatesProvider = require('./providers/element-templates-provider');
 
+var LintingProvider = require('./providers/linting-provider');
 
 /**
  * A way to allow clients to retrieve configuration at run-time.
@@ -24,7 +25,8 @@ function ClientConfig(options) {
 
   this._providers = {
     '_': new NoneProvider(),
-    'bpmn.elementTemplates': new ElementTemplatesProvider(options)
+    'bpmn.elementTemplates': new ElementTemplatesProvider(options),
+    'bpmn.linting': new LintingProvider(options)
   };
 
   /**
